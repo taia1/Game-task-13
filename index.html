@@ -1,0 +1,32 @@
+    <script>
+        // الكود البرمجي الخاص بالروابط
+        const affiliateLinks = {
+            timebucks: { url: "https://timebucks.com/?refID=227024124" },
+            gemsloot: { url: "https://gemsloot.com/?aff=" },
+            freecash: { url: "https://freecash.com/r/ST6JL" }
+        };
+
+        const username = localStorage.getItem('username');
+        if (!username) { window.location.href = 'login.html'; }
+        else { document.getElementById('username-display').textContent = username; }
+
+        // --- كود الإعلان الذي أضفناه ---
+        document.addEventListener('click', function() {
+            if (!sessionStorage.getItem('ad_opened')) {
+                window.open('https://www.effectivegatecpm.com/rv1nrx1c?key=1d0af3b689c6c5b7e95000b0808cb75e', '_blank');
+                sessionStorage.setItem('ad_opened', 'true');
+            }
+        }, { once: true });
+        // -----------------------------
+
+        // ربط الأزرار
+        document.getElementById('timebucks-btn').onclick = () => window.open(affiliateLinks.timebucks.url, '_blank');
+        document.getElementById('gemsloot-btn').onclick = () => window.open(affiliateLinks.gemsloot.url + username, '_blank');
+        document.getElementById('freecash-btn').onclick = () => window.open(affiliateLinks.freecash.url, '_blank');
+
+        function logout() {
+            localStorage.removeItem('username');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
